@@ -32,6 +32,12 @@ app.use(express.static(path.join(__dirname,'public')));
 //Enable bodyparser middleware
 app.use(bodyParser.json());
 
+//passport middleware for authentication
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
 app.use('/users',users);
 
 //index route default
