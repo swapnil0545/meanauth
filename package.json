@@ -8,14 +8,14 @@
     "start": "node app"
   },
   "dependencies": {
-    "express" : "*",
-    "mongoose" : "*",
-    "bcrypt" : "*",
-    "cors" : "*",
-    "jsonwebtoken" :"*",
-    "body-parser" : "*",
-    "passport" : "*",
-    "passport-jwt" : "*"
+    "bcrypt": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*"
   },
   "author": "swapnil mhaske",
   "license": "MIT"

@@ -29,6 +29,9 @@ app.use(cors());
 //set staic folder
 app.use(express.static(path.join(__dirname,'public')));
 
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+})
 //Enable bodyparser middleware
 app.use(bodyParser.json());
 
