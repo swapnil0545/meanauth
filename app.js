@@ -6,6 +6,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 
+// Connect To Database
 mongoose.connect(config.database);
 
 mongoose.connection.on('connected',()=>{
@@ -29,13 +30,10 @@ app.use(cors());
 //set staic folder
 app.use(express.static(path.join(__dirname,'public')));
 
-app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-})
-//Enable bodyparser middleware
+// Body Parser Middleware
 app.use(bodyParser.json());
 
-//passport middleware for authentication
+// Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -43,9 +41,13 @@ require('./config/passport')(passport);
 
 app.use('/users',users);
 
-//index route default
-app.get('/',(req,res)=>{
-    res.send('Invalid Endpoint');
+// Index Route
+app.get('/', (req, res) => {
+  res.send('Invalid Endpoint');
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // start server
